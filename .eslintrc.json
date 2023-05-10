@@ -111,6 +111,20 @@
 			}
 		},
 		{
+			"files": ["*.ts"],
+			"excludedFiles": ["src/app/modules/*.module.ts"],
+			"extends": ["plugin:prettier/recommended"],
+			"rules": {
+				"@typescript-eslint/no-explicit-any": [
+					"error",
+					{
+						"variableDeclaration": true,
+						"memberVariableDeclaration": true
+					}
+				]
+			}
+		},
+		{
 			// NOTE: WE ARE NOT APPLYING PRETTIER IN THIS OVERRIDE, ONLY @ANGULAR-ESLINT/TEMPLATE
 			"files": ["*.html"],
 			"extends": [
