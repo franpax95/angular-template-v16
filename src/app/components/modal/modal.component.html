@@ -1,0 +1,46 @@
+<div
+	[class]="CLASSNAME"
+	(animationend)="animationDone($event)"
+	[ngStyle]="{ '--level': level, '--next-level': level + 1 }"
+>
+	<div class="modal">
+		<h1 class="title">{{ conf.title }}</h1>
+
+		<p class="text" *ngFor="let text of conf.content">{{ text }}</p>
+
+		<ul *ngIf="conf && conf.list">
+			<li *ngFor="let li of conf.list">{{ li }}</li>
+		</ul>
+
+		<div class="footer">
+			<app-primary-button
+				*ngIf="conf.onAccept"
+				[id]="'primary-modal-success-btn-' + level"
+				[className]="'success'"
+				[styles]="{ width: '100px', padding: '.5rem .25rem' }"
+				(ngClick)="onAcceptClick($event)"
+			>
+				Aceptar
+			</app-primary-button>
+
+			<app-primary-button
+				*ngIf="conf.onCancel"
+				[id]="'primary-modal-danger-btn-' + level"
+				[className]="'danger'"
+				[styles]="{ width: '100px', padding: '.5rem .25rem' }"
+				(ngClick)="onCancelClick($event)"
+			>
+				Cancelar
+			</app-primary-button>
+
+			<app-primary-button
+				*ngIf="!conf.onAccept && !conf.onCancel"
+				[id]="'primary-modal-default-btn-' + level"
+				[styles]="{ width: '100px', padding: '.5rem .25rem' }"
+				(ngClick)="onDefaultClick($event)"
+			>
+				Aceptar
+			</app-primary-button>
+		</div>
+	</div>
+</div>

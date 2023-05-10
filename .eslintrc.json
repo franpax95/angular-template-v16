@@ -1,118 +1,134 @@
 {
-    "root": true,
-    "ignorePatterns": ["projects/**/*"],
-    "overrides": [
-        {
-            "files": ["*.ts"],
-            "extends": [
-                "eslint:recommended",
-                "plugin:@typescript-eslint/recommended",
-                "plugin:@angular-eslint/recommended",
-                "plugin:@angular-eslint/template/process-inline-templates",
-                "plugin:prettier/recommended"
-            ],
-            "rules": {
-                /*****************************************************
-                 * ANGULAR RULES
-                 */
-                "@angular-eslint/directive-selector": [
-                    "error",
-                    {
-                        "type": "attribute",
-                        "prefix": "app",
-                        "style": "camelCase"
-                    }
-                ],
-                "@angular-eslint/component-class-suffix": [
-                    "error",
-                    {
-                        "suffixes": ["Page", "Component"]
-                    }
-                ],
-                "@angular-eslint/component-selector": [
-                    "error",
-                    {
-                        "type": "element",
-                        "prefix": "app",
-                        "style": "kebab-case"
-                    }
-                ],
+	"root": true,
+	"ignorePatterns": ["projects/**/*"],
+	"overrides": [
+		{
+			"files": ["*.ts"],
+			"extends": [
+				"eslint:recommended",
+				"plugin:@typescript-eslint/recommended",
+				"plugin:@angular-eslint/recommended",
+				"plugin:@angular-eslint/template/process-inline-templates",
+				"plugin:prettier/recommended"
+			],
+			"rules": {
+				/*****************************************************
+				 * ANGULAR RULES
+				 */
+				"@angular-eslint/directive-selector": [
+					"error",
+					{
+						"type": "attribute",
+						"prefix": "app",
+						"style": "camelCase"
+					}
+				],
+				"@angular-eslint/component-class-suffix": [
+					"error",
+					{
+						"suffixes": ["Page", "Component"]
+					}
+				],
+				"@angular-eslint/component-selector": [
+					"error",
+					{
+						"type": "element",
+						"prefix": "app",
+						"style": "kebab-case"
+					}
+				],
 
-                /*****************************************************
-                 * TYPESCRIPT RULES
-                 */
-                
-                 // Require a consistent member declaration order.
-                "@typescript-eslint/member-ordering": 1,
+				/*****************************************************
+				 * TYPESCRIPT RULES
+				 */
 
-                // Enforce naming conventions for everything across a codebase.
-                "@typescript-eslint/naming-convention": 0,
+				// Require a consistent member declaration order.
+				"@typescript-eslint/member-ordering": 0,
 
-                // Disallow empty functions.
-                "@typescript-eslint/no-empty-function": "off",
+				// Enforce naming conventions for everything across a codebase.
+				"@typescript-eslint/naming-convention": 0,
 
-                // Disallow explicit type declarations for variables or parameters initialized to a number, string, or boolean.
-                "@typescript-eslint/no-inferrable-types": ["off", { "ignoreParameters": true }],
+				// Disallow empty functions.
+				"@typescript-eslint/no-empty-function": "off",
 
-                // Explicit return type declaration on functions && methods
-                "@typescript-eslint/explicit-function-return-type": "error",
+				// Disallow explicit type declarations for variables or parameters initialized to a number, string, or boolean.
+				"@typescript-eslint/no-inferrable-types": [
+					"off",
+					{ "ignoreParameters": true }
+				],
 
-                // Require explicit accessibility modifiers on class properties and methods.
-                "@typescript-eslint/explicit-member-accessibility": ["error", {
-                    "accessibility": "explicit",
-                    "overrides": {
-                        "accessors": "explicit",
-                        "constructors": "no-public",
-                        "methods": "explicit",
-                        "properties": "explicit",
-                        "parameterProperties": "explicit"
-                    }
-                }],
+				// Explicit return type declaration on functions && methods
+				"@typescript-eslint/explicit-function-return-type": "error",
 
-                // Require explicit return and argument types on exported functions' and classes' public class methods.
-                "@typescript-eslint/explicit-module-boundary-types": ["error", { 
-                    "allowArgumentsExplicitlyTypedAsAny": false 
-                }],
+				// Require explicit accessibility modifiers on class properties and methods.
+				"@typescript-eslint/explicit-member-accessibility": [
+					"error",
+					{
+						"accessibility": "explicit",
+						"overrides": {
+							"accessors": "no-public",
+							"constructors": "no-public",
+							"methods": "explicit",
+							"properties": "explicit",
+							"parameterProperties": "explicit"
+						}
+					}
+				],
 
-                // Require type annotations in certain places 
-                "@typescript-eslint/typedef": ["error", {
-                    "variableDeclaration": true,
-                    "memberVariableDeclaration": true
-                }],
+				// Require explicit return and argument types on exported functions' and classes' public class methods.
+				"@typescript-eslint/explicit-module-boundary-types": [
+					"error",
+					{
+						"allowArgumentsExplicitlyTypedAsAny": false
+					}
+				],
 
-                /*****************************************************
-                 * GENERAL RULES
-                 */
+				// Require type annotations in certain places
+				"@typescript-eslint/typedef": [
+					"error",
+					{
+						"variableDeclaration": true,
+						"memberVariableDeclaration": true
+					}
+				],
 
-                // Enforce consistent spacing inside braces.
-                "object-curly-spacing": ["error", "always", {
-                    "objectsInObjects": true,
-                    "arraysInObjects": true
-                }],
+				/*****************************************************
+				 * GENERAL RULES
+				 */
 
-                // Disallow multiple spaces
-                "no-multi-spaces": "error"
-            }
-        },
-        {
-            // NOTE: WE ARE NOT APPLYING PRETTIER IN THIS OVERRIDE, ONLY @ANGULAR-ESLINT/TEMPLATE
-            "files": ["*.html"],
-            "extends": [
-                "plugin:@angular-eslint/template/recommended",
-                "plugin:@angular-eslint/template/accessibility",
-                "plugin:@angular-eslint/template/recommended"
-            ],
-            "rules": {}
-        },
-        {
-            // NOTE: WE ARE NOT APPLYING @ANGULAR-ESLINT/TEMPLATE IN THIS OVERRIDE, ONLY PRETTIER
-            "files": ["*.html"],
-            "excludedFiles": ["*inline-template-*.component.html"],
-            "extends": ["plugin:prettier/recommended"],
-            "rules": {
-                // NOTE: WE ARE OVERRIDING THE DEFAULT CONFIG TO ALWAYS SET THE PARSER TO ANGULAR (SEE BELOW)
-                "prettier/prettier": ["error", { "parser": "angular" }]
-            }
-        }
-    ]
+				// Enforce consistent spacing inside braces.
+				"object-curly-spacing": [
+					"error",
+					"always",
+					{
+						"objectsInObjects": true,
+						"arraysInObjects": true
+					}
+				],
+
+				// Disallow multiple spaces
+				"no-multi-spaces": "error"
+			}
+		},
+		{
+			// NOTE: WE ARE NOT APPLYING PRETTIER IN THIS OVERRIDE, ONLY @ANGULAR-ESLINT/TEMPLATE
+			"files": ["*.html"],
+			"extends": [
+				"plugin:@angular-eslint/template/recommended",
+				"plugin:@angular-eslint/template/accessibility",
+				"plugin:@angular-eslint/template/recommended"
+			],
+			"rules": {}
+		},
+		{
+			// NOTE: WE ARE NOT APPLYING @ANGULAR-ESLINT/TEMPLATE IN THIS OVERRIDE, ONLY PRETTIER
+			"files": ["*.html"],
+			"excludedFiles": ["*inline-template-*.component.html"],
+			"extends": ["plugin:prettier/recommended"],
+			"rules": {
+				// NOTE: WE ARE OVERRIDING THE DEFAULT CONFIG TO ALWAYS SET THE PARSER TO ANGULAR (SEE BELOW)
+				"prettier/prettier": ["error", { "parser": "angular" }]
+			}
+		}
+	]
 }

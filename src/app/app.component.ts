@@ -1,38 +1,43 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewContainerRef } from '@angular/core';
+import { SettingsService } from './services/settings.service';
+import { Subscription } from 'rxjs';
+import { SpinnerSize } from './components/spinner/spinner.component';
 
 @Component({
 	selector: 'app-root',
 	templateUrl: './app.component.html',
 	styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
-	public title: string = 'angular-template-v16';
+export class AppComponent implements OnInit, OnDestroy {
+	/** Show a screen spinner */
+	public loading: boolean;
+	/** Loading Var Subscription from SettingsService */
+	public loadingSubscription!: Subscription;
 
-	public arr: Array<number> = [1, 2];
+	constructor(private settings: SettingsService, private viewRef: ViewContainerRef) {
+		// Get loading var from settings service
+		this.loading = settings.loading;
 
-	public Juan: string = 'Fran';
+		// We set the viewRef of the root component first
+		settings.viewRef = viewRef;
+	}
 
-	/** Comment */
-	public comment: string = 'Comments';
-
-	constructor() {}
+	get SpinnerSize(): typeof SpinnerSize {
+		return SpinnerSize;
+	}
 
 	public ngOnInit(): void {
-		throw new Error('Method not implemented.');
+		this.loadingSubscription = this.settings.loadingObs.subscribe((loading: boolean) => (this.loading = loading));
+
+		this.settings.openModal({
+			title: 'Prueba',
+			content: ['¡Funciona!'],
+		});
 	}
 
-	public method1(): void {
-		console.dir('method1');
-	}
-
-	public method2(): void {
-		console.dir('method2');
-		console.dir('');
-		console.dir('Juan');
-		const ok: boolean | null = true;
-		const Juan: string = 'juan';
-
-		const array: Array<number> = [1, 2];
-		const obj: any = { Juan, array: { Juan } };
+	public ngOnDestroy(): void {
+		if (this.loadingSubscription) {
+			this.loadingSubscription.unsubscribe();
+		}
 	}
 }
