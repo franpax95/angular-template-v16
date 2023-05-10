@@ -1,0 +1,10 @@
+{
+    "editor.codeActionsOnSave": { 
+        "source.fixAll": false 
+    },
+    "editor.formatOnSave": false,
+    "prettier.arrowParens": "avoid",
+    "prettier.singleQuote": true,
+    "prettier.tabWidth": 4,
+    "prettier.useTabs": true,
+}
