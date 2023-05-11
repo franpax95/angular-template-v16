@@ -1,0 +1,81 @@
+<section class="HomePage">
+	<h1>Angular Template v16</h1>
+
+	<article class="buttons-container">
+		<div>
+			<app-primary-button (ngClick)="onClick()" [className]="''"> PRIMARY </app-primary-button>
+		</div>
+
+		<div>
+			<app-primary-button (ngClick)="onClick()" [className]="''" [disabled]="true">
+				PRIMARY DISABLED
+			</app-primary-button>
+		</div>
+
+		<div>
+			<app-primary-button (ngClick)="onClick()" [className]="'sm'"> Primary Small </app-primary-button>
+		</div>
+
+		<div>
+			<app-primary-button (ngClick)="onClick()" [className]="'lg'"> PRIMARY LARGE </app-primary-button>
+		</div>
+
+		<div>
+			<app-primary-button (ngClick)="onClick()" [className]="'secondary'"> SECONDARY </app-primary-button>
+		</div>
+
+		<div>
+			<app-primary-button (ngClick)="onClick()" [className]="'secondary'" [disabled]="true">
+				SECONDARY DISABLED
+			</app-primary-button>
+		</div>
+
+		<div>
+			<app-primary-button (ngClick)="onClick()" [className]="'secondary sm'">
+				Secondary Small
+			</app-primary-button>
+		</div>
+
+		<div>
+			<app-primary-button (ngClick)="onClick()" [className]="'secondary lg'">
+				SECONDARY LARGE
+			</app-primary-button>
+		</div>
+
+		<div>
+			<app-primary-button (ngClick)="onClick()" [className]="'success'"> SUCCESS </app-primary-button>
+		</div>
+
+		<div>
+			<app-primary-button (ngClick)="onClick()" [className]="'success'" [disabled]="true">
+				SUCCESS DISABLED
+			</app-primary-button>
+		</div>
+
+		<div>
+			<app-primary-button (ngClick)="onClick()" [className]="'success sm'"> Success Small </app-primary-button>
+		</div>
+
+		<div>
+			<app-primary-button (ngClick)="onClick()" [className]="'success lg'"> SUCCESS LARGE </app-primary-button>
+		</div>
+
+		<div>
+			<app-primary-button (ngClick)="onClick()" [className]="'danger'"> DANGER </app-primary-button>
+		</div>
+
+		<div>
+			<app-primary-button (ngClick)="onClick()" [className]="'danger'" [disabled]="true">
+				DANGER DISABLED
+			</app-primary-button>
+		</div>
+
+		<div>
+			<app-primary-button (ngClick)="onClick()" [className]="'danger sm'"> Danger Small </app-primary-button>
+		</div>
+
+		<div>
+			<app-primary-button (ngClick)="onClick()" [className]="'danger lg'"> DANGER LARGE </app-primary-button>
+		</div>
+	</article>
+</section>

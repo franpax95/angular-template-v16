@@ -1,49 +1,50 @@
-import { ComponentRef, Injectable, ViewContainerRef } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { ComponentRef, Injectable, ViewContainerRef, WritableSignal, effect, signal } from '@angular/core';
 import { IModal, ModalComponent } from '../components/modal/modal.component';
 
 @Injectable({
 	providedIn: 'root',
 })
 export class SettingsService {
-	/** Behaviour Subject to watch loading var */
-	private loadingSub: BehaviorSubject<boolean> = new BehaviorSubject(false);
-	/** Behaviour Subject to receive main ViewRefContainer and emit it since here */
-	private viewRefSub: BehaviorSubject<ViewContainerRef | null> = new BehaviorSubject(<ViewContainerRef | null>null);
+	/** Signal to watch loading var */
+	private _loading: WritableSignal<boolean> = signal<boolean>(false);
+	/** Signal to receive main ViewRefContainer and emit it since here */
+	private _viewRef: WritableSignal<ViewContainerRef | null> = signal<ViewContainerRef | null>(null);
 
 	/** Array de las referencias a las instancias de modales */
 	private modalRefs: Array<ComponentRef<ModalComponent>> = [];
 
-	constructor() {}
+	constructor() {
+		effect(() => console.dir(`loading = ${this._loading()}`), { allowSignalWrites: true });
+	}
 
-	// Loading Observable getter
-	get loadingObs(): Observable<boolean> {
-		return this.loadingSub.asObservable();
+	// Loading Signal getter
+	get loadingSignal(): WritableSignal<boolean> {
+		return this._loading;
 	}
 
 	// Current loading value getter
 	get loading(): boolean {
-		return this.loadingSub.getValue();
+		return this._loading();
 	}
 
 	// Loading value setter
 	set loading(value: boolean) {
-		this.loadingSub.next(value);
+		this._loading.set(value);
 	}
 
 	// ViewContainerRef of the root Observable getter
-	get viewRefObs(): Observable<ViewContainerRef | null> {
-		return this.viewRefSub.asObservable();
+	get viewRefSignal(): WritableSignal<ViewContainerRef | null> {
+		return this._viewRef;
 	}
 
 	// ViewContainerRef of the root value getter
 	get viewRef(): ViewContainerRef | null {
-		return this.viewRefSub.getValue();
+		return this._viewRef();
 	}
 
 	// ViewContainerRef of the root value setter
 	set viewRef(value: ViewContainerRef | null) {
-		this.viewRefSub.next(value);
+		this._viewRef.set(value);
 	}
 
 	/**

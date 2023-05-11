@@ -26,7 +26,7 @@
 				"@angular-eslint/component-class-suffix": [
 					"error",
 					{
-						"suffixes": ["Page", "Component"]
+						"suffixes": ["Page", "Component", "Icon"]
 					}
 				],
 				"@angular-eslint/component-selector": [
@@ -108,20 +108,6 @@
 
 				// Disallow multiple spaces
 				"no-multi-spaces": "error"
-			}
-		},
-		{
-			"files": ["*.ts"],
-			"excludedFiles": ["src/app/modules/*.module.ts"],
-			"extends": ["plugin:prettier/recommended"],
-			"rules": {
-				"@typescript-eslint/no-explicit-any": [
-					"error",
-					{
-						"variableDeclaration": true,
-						"memberVariableDeclaration": true
-					}
-				]
 			}
 		},
 		{

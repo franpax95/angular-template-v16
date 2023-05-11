@@ -1,10 +1,10 @@
 <button
 	[id]="id"
 	[type]="type"
-	[class]="'PrimaryButton ' + className + ' ' + tooltipPlacement"
+	[class]="'primary-button ' + className + ' ' + tooltipPlacement"
 	[disabled]="disabled"
 	[ngStyle]="styles"
-	[ngClass]="{ tooltip: tooltip !== '' }"
+	[ngClass]="{ tooltip: tooltip !== '', disabled }"
 	[attr.data-tooltip]="tooltip"
 	(click)="onButtonClick($event)"
 >

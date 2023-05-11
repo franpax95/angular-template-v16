@@ -1,11 +1,10 @@
-import { AfterContentInit, Component, ElementRef, Input } from '@angular/core';
+import { AfterContentInit, Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
 import { SettingsService } from 'src/app/services/settings.service';
 import { Modal } from './parent.modal.component';
 
 export interface IModal {
 	title: string;
 	content?: Array<string>;
-	list?: Array<string>;
 	onAccept?: () => void | boolean;
 	onCancel?: () => void | boolean;
 }
@@ -14,6 +13,7 @@ export interface IModal {
 	selector: 'app-modal',
 	templateUrl: './modal.component.html',
 	styleUrls: ['./modal.component.scss'],
+	encapsulation: ViewEncapsulation.None,
 })
 export class ModalComponent extends Modal implements AfterContentInit {
 	/** Variable con el nombre de la clase del modal */

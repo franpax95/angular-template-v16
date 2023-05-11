@@ -1,6 +1,9 @@
 .PrimaryModalComponent {
-    z-index: 500;
-    z-index: calc(500 + var(--level, 0));
+	--depth: var(--z-index-modal);
+	--section-padding: 1rem;
+
+    z-index: var(--depth);
+    z-index: calc(var(--depth) + var(--level, 0));
     width: 100%;
     height: 100%;
 
@@ -21,8 +24,6 @@
         min-width: 250px;
         max-width: 500px;
         max-width: min(500px, 90vw);
-        padding: 1rem;
-        padding-top: 2rem;
 
         display: flex;
         flex-direction: column;
@@ -37,30 +38,79 @@
         animation: ModalTranslateIn .3s;
         transform: translateY(calc(-45px + calc(var(--next-level, 1) * 15px)));
 
-        .title {
-            width: 100%;
-            margin: 0;
+        .header {
+			width: 100%;
+			min-height: 80px;
+			padding: var(--section-padding);
 
-            color: var(--primary, #2b2b2b);
-            font-weight: bold;
-            text-align: center;
-        }
+			display: grid;
+			grid-template-columns: 1fr 40px;
+			gap: .5rem;
+			align-items: center;
 
-        .text {
-            margin: .5rem 0;
-            width: 100%;
-            color: #666666;
-            text-align: left;
-        }
+			background-color: var(--primary);
 
-        li {
-            font-size: 15px;
-            margin-left: 1.5rem;
-        }
+			.title {
+				overflow: hidden;
+				color: white;
+
+				font-size: 26px;
+				font-weight: bold;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+			}
+
+			.close-btn {
+				width: 40px;
+				height: 40px;
+
+				display: grid;
+				place-items: center;
+
+				cursor: pointer;
+				background-color: rgba(0, 0, 0, 0);
+				color: white;
+
+				transition: color .25s, width .25s, height .25s;
+
+				svg {
+					width: 36px;
+					height: 36px;
+					transition: inherit;
+				}
+
+				&:hover {
+					color: var(--danger);
+				}
+
+				&:active {
+					color: var(--danger-active);
+				}
+			}
+		}
+
+		.body {
+			padding: var(--section-padding);
+
+			display: flex;
+			gap: .75rem;
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: flex-start;
+
+			.text {
+				// width: 100%;
+				color: #666666;
+				// text-align: left;
+			}
+		}
+
+        
 
         .footer {
             width: 100%;
-            padding: .75rem;
+			max-width: 450px;
+            padding: var(--section-padding);
 
             display: flex;
             flex-direction: row;

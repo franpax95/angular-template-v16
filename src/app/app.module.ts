@@ -4,17 +4,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ComponentsModule } from './modules/components.module';
-import { PagesModule } from './modules/pages.module';
 import { FormsModule } from '@angular/forms';
-import { PipesModule } from './modules/pipes.modules';
-import { DirectivesModule } from './modules/directives.module';
-
-const custom_modules: Array<any> = [ComponentsModule, DirectivesModule, PagesModule, PipesModule];
+import { APP_MODULES } from './modules';
 
 @NgModule({
 	declarations: [AppComponent],
-	imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, FormsModule, ...custom_modules],
+	imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, FormsModule, ...APP_MODULES],
 	providers: [],
 	bootstrap: [AppComponent],
 })

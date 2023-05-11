@@ -1,6 +1,5 @@
-import { Component, OnDestroy, OnInit, ViewContainerRef } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewContainerRef, WritableSignal } from '@angular/core';
 import { SettingsService } from './services/settings.service';
-import { Subscription } from 'rxjs';
 import { SpinnerSize } from './components/spinner/spinner.component';
 
 @Component({
@@ -9,14 +8,12 @@ import { SpinnerSize } from './components/spinner/spinner.component';
 	styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit, OnDestroy {
-	/** Show a screen spinner */
-	public loading: boolean;
-	/** Loading Var Subscription from SettingsService */
-	public loadingSubscription!: Subscription;
+	/** Signal to handle Screen Load Spinner */
+	public loading: WritableSignal<boolean>;
 
 	constructor(private settings: SettingsService, private viewRef: ViewContainerRef) {
-		// Get loading var from settings service
-		this.loading = settings.loading;
+		// Get loading signal from settings service
+		this.loading = settings.loadingSignal;
 
 		// We set the viewRef of the root component first
 		settings.viewRef = viewRef;
@@ -27,17 +24,10 @@ export class AppComponent implements OnInit, OnDestroy {
 	}
 
 	public ngOnInit(): void {
-		this.loadingSubscription = this.settings.loadingObs.subscribe((loading: boolean) => (this.loading = loading));
-
-		this.settings.openModal({
-			title: 'Prueba',
-			content: ['¡Funciona!'],
-		});
+		console.dir('ngOnInit');
 	}
 
 	public ngOnDestroy(): void {
-		if (this.loadingSubscription) {
-			this.loadingSubscription.unsubscribe();
-		}
+		console.dir('ngOnDestroy');
 	}
 }

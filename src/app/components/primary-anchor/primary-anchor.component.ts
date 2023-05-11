@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
-export interface IPrimaryButton {
+export interface IPrimaryAnchor {
 	content?: string;
 	id?: string;
 	type?: string;
@@ -13,17 +13,17 @@ export interface IPrimaryButton {
 }
 
 @Component({
-	selector: 'app-primary-button',
-	templateUrl: './primary-button.component.html',
-	styleUrls: ['./primary-button.component.scss'],
+	selector: 'app-primary-anchor',
+	templateUrl: './primary-anchor.component.html',
+	styleUrls: ['./primary-anchor.component.scss'],
 })
-export class PrimaryButtonComponent {
+export class PrimaryAnchorComponent {
 	/** 'Id' attribute */
 	@Input() public id: string = '';
-	/** Type of the button: 'button', 'submit'. */
-	@Input() public type: string = '';
 	/** 'Disabled' attribute */
 	@Input() public disabled: boolean = false;
+	/** 'href' attribute */
+	@Input() public href: string = '';
 	/** Additional styles */
 	@Input() public styles: any = {};
 	/** Tooltip message. If empty, no tooltip will show. */
@@ -51,7 +51,7 @@ export class PrimaryButtonComponent {
 	/**
 	 * Manejador de eventos 'click' del botón
 	 */
-	public onButtonClick(event: MouseEvent): void {
+	public onAnchorClick(event: MouseEvent): void {
 		if (this.ngClickCb) {
 			this.ngClickCb(event);
 		}

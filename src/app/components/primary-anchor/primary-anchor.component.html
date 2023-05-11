@@ -1,0 +1,11 @@
+<a
+	[id]="id"
+	[href]="href"
+	[class]="'primary-anchor ' + className + ' ' + tooltipPlacement"
+	[ngStyle]="styles"
+	[ngClass]="{ tooltip: tooltip !== '', disabled }"
+	[attr.data-tooltip]="tooltip"
+	(click)="onAnchorClick($event)"
+>
+	<ng-content></ng-content>
+</a>

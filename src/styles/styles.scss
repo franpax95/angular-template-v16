@@ -1,0 +1,225 @@
+
+$primary: #187498;
+$secondary: #F9D923;
+$success: #36AE7C;
+$danger: #EB5353;
+
+:root {
+	/********************************************************************
+	 * DEPTHS (z-index)
+	 */
+	--z-index-modal: 500;
+	--z-index-screen-spinner: 1000;
+
+	/********************************************************************
+	 * COLORS
+	 */
+    --primary: #{$primary};
+    --primary-hover: #{darken($primary, 10%)};
+    --primary-active: #{darken($primary, 15%)};
+    --primary-disabled: #{mix($primary, white, 50%)};
+
+	--secondary: #{$secondary};
+    --secondary-hover: #{darken($secondary, 10%)};
+    --secondary-active: #{darken($secondary, 15%)};
+    --secondary-disabled: #{mix($secondary, white, 50%)};
+
+	--success: #{$success};
+    --success-hover: #{darken($success, 10%)};
+    --success-active: #{darken($success, 15%)};
+    --success-disabled: #{mix($success, white, 50%)};
+
+	--danger: #{$danger};
+    --danger-hover: #{darken($danger, 10%)};
+    --danger-active: #{darken($danger, 15%)};
+    --danger-disabled: #{mix($danger, white, 50%)};
+}
+
+/********************************************************************
+ * GLOBAL STYLES
+ */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    outline: 0;
+
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Montserrat';
+}
+
+html, 
+body { 
+    height: 100%; 
+}
+
+body {
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Syncopate';
+    text-transform: uppercase;
+}
+
+a {
+	text-decoration: none;
+}
+
+input,
+button,
+textarea {
+	outline: none;
+}
+
+button {
+	border: none;
+}
+
+/********************************************************************
+ * MODAL KEYFRAMES
+ */
+@keyframes ModalFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes ModalFadeOut {
+    to { opacity: 0; }
+}
+
+@keyframes ModalTranslateIn {
+    0% { transform: translateY(calc(-45px + calc(var(--level, 0) * 15px))); }
+    100% { transform: translateY(calc(-45px + calc(var(--next-level, 1) * 15px))); }
+}
+
+@keyframes ModalTranslateOut {
+    to { transform: translateY(calc(-45px + calc(var(--level, 0) * 15px))); }
+}
+
+/***************************************************************************
+ * PRIMARY BUTTON & ANCHOR
+ */
+.primary-anchor,
+.primary-button {
+	--border-radius: 10px;
+
+	--padding: .75rem 1.25rem;
+	--font-size: 1rem;
+	--letter-spacing: .15rem;
+
+	--color: var(--primary);
+	--hover: var(--primary-hover);
+	--active: var(--primary-active);
+	--disabled: var(--primary-disabled);
+	--text-color: #fff;
+
+	&.sm {
+		--padding: .5rem .75rem;
+		--font-size: .75rem;
+		--letter-spacing: .1rem;
+	}
+
+	&.lg {
+		--pading: 1rem 2rem;
+		--font-size: 1.25rem;
+		--letter-spacing: .2rem;
+	}
+
+	&.secondary { 
+		--color: var(--secondary); 
+		--hover: var(--secondary-hover);
+		--active: var(--secondary-active);
+		--disabled: var(--secondary-disabled);
+		--text-color: #4d4d4d;
+	}
+
+	&.success { 
+		--color: var(--success); 
+		--hover: var(--success-hover);
+		--active: var(--success-active);
+		--disabled: var(--success-disabled);
+	}
+
+	&.danger {
+		--color: var(--danger); 
+		--hover: var(--danger-hover);
+		--active: var(--danger-active);
+		--disabled: var(--danger-disabled);
+	}
+
+	z-index: 1;
+	padding: var(--padding);
+
+	position: relative;
+
+	display: inline-flex;
+
+	cursor: pointer;
+	overflow: hidden;
+	border-radius: var(--border-radius);
+	color: var(--text-color);
+
+	// text-transform: uppercase;
+	font-size: var(--font-size);
+	letter-spacing: var(--letter-spacing);
+
+	transition: all .3s;
+
+	&:after {
+		content: '';
+
+		z-index: -2;
+		width: 100%;
+		height: 100%;
+
+		position: absolute;
+		bottom: 0;
+		left: 0;
+
+		background-color: var(--color);
+		border-radius: var(--border-radius);
+	}
+
+	&:before {
+		content: '';
+
+		z-index: -1;
+
+		width: 0%;
+		height: 100%;
+
+		position: absolute;
+		bottom: 0;
+		left: 0;
+
+		border-radius: var(--border-radius);
+		background-color: var(--hover);
+
+		transition: all .3s;
+	}
+
+	&:hover {
+		color: var(--text-color);
+
+		&:before {
+			width: 100%;
+		}
+	}
+
+	&:active {
+		&:before {
+			background-color: var(--active);
+		}
+	}
+
+	&.disabled {
+		cursor: default;
+
+		&:before {
+			width: 100%;
+			background-color: var(--disabled);
+		}
+	}
+}

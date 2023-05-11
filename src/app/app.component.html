@@ -1,5 +1,5 @@
 <router-outlet></router-outlet>
 
-<div class="spinner-screen" *ngIf="loading">
+<div class="spinner-screen" *ngIf="loading()">
 	<app-spinner [size]="SpinnerSize.MEDIUM" [color]="''"></app-spinner>
 </div>
