@@ -1,69 +1,125 @@
 <section class="HomePage">
-	<h1>Angular Template v16</h1>
+	<header>
+		<h1>Angular Template v16</h1>
+		<p>
+			Introducing the Angular skeleton created by Francisco Javier Navarro García! This skeleton serves as a solid foundation for web developers who want to create Angular applications from
+			scratch. With its modular structure and clear separation of concerns, this skeleton makes it easy to organize your code and build scalable applications that can handle complex business
+			logic. The skeleton includes pre-configured modules, components, and services that you can use as building blocks to create your own custom features. Plus, it's built with the latest
+			technologies and best practices, ensuring your application will be secure and performant. Whether you're a seasoned developer or just starting out, this Angular skeleton is a valuable
+			resource that will save you time and help you build high-quality applications. So why wait? Download the skeleton today and start building your next Angular project with confidence!
+		</p>
+	</header>
 
-	<article class="buttons-container">
-		<div>
-			<app-primary-button (ngClick)="onClick()" [className]="''"> PRIMARY </app-primary-button>
+	<article appIntersectionObserver #intersection="intersection" (isIntersecting)="isIntersecting($event)" [isContinuous]="true" [threshold]="0.25">
+		<h2>Icons Sample</h2>
+		<div class="icons-container">
+			<div>
+				<app-arrow-left-icon></app-arrow-left-icon>
+			</div>
+
+			<div>
+				<app-arrow-right-icon></app-arrow-right-icon>
+			</div>
+
+			<div>
+				<app-close-icon></app-close-icon>
+			</div>
+
+			<div>
+				<app-info-icon></app-info-icon>
+			</div>
+
+			<div>
+				<app-marvel-icon></app-marvel-icon>
+			</div>
+
+			<div>
+				<app-search-icon></app-search-icon>
+			</div>
+
+			<div>
+				<app-wiki-icon></app-wiki-icon>
+			</div>
+
+			<div>
+				<app-upload-icon></app-upload-icon>
+			</div>
 		</div>
+	</article>
 
-		<div>
-			<app-primary-button (ngClick)="onClick()" [className]="''" [disabled]="true"> PRIMARY DISABLED </app-primary-button>
+	<article appIntersectionObserver #intersection="intersection" (isIntersecting)="isIntersecting($event)" [isContinuous]="true" [threshold]="0.25">
+		<h2>File Input</h2>
+		<div class="file-input-container">
+			<app-primary-file-input></app-primary-file-input>
 		</div>
+	</article>
 
-		<div>
-			<app-primary-button (ngClick)="onClick()" [className]="'sm'"> Primary Small </app-primary-button>
-		</div>
+	<article appIntersectionObserver #intersection="intersection" (isIntersecting)="isIntersecting($event)" [isContinuous]="true" [threshold]="0.25">
+		<h2>Primary Buttons Sample</h2>
+		<div class="buttons-container">
+			<div>
+				<app-primary-button (ngClick)="onClick()" [className]="''"> PRIMARY </app-primary-button>
+			</div>
 
-		<div>
-			<app-primary-button (ngClick)="onClick()" [className]="'lg'"> PRIMARY LARGE </app-primary-button>
-		</div>
+			<div>
+				<app-primary-button (ngClick)="onClick()" [className]="''" [disabled]="true"> PRIMARY DISABLED </app-primary-button>
+			</div>
 
-		<div>
-			<app-primary-button (ngClick)="onClick()" [className]="'secondary'"> SECONDARY </app-primary-button>
-		</div>
+			<div>
+				<app-primary-button (ngClick)="onClick()" [className]="'sm'"> Primary Small </app-primary-button>
+			</div>
 
-		<div>
-			<app-primary-button (ngClick)="onClick()" [className]="'secondary'" [disabled]="true"> SECONDARY DISABLED </app-primary-button>
-		</div>
+			<div>
+				<app-primary-button (ngClick)="onClick()" [className]="'lg'"> PRIMARY LARGE </app-primary-button>
+			</div>
 
-		<div>
-			<app-primary-button (ngClick)="onClick()" [className]="'secondary sm'"> Secondary Small </app-primary-button>
-		</div>
+			<div>
+				<app-primary-button (ngClick)="onClick()" [className]="'secondary'"> SECONDARY </app-primary-button>
+			</div>
 
-		<div>
-			<app-primary-button (ngClick)="onClick()" [className]="'secondary lg'"> SECONDARY LARGE </app-primary-button>
-		</div>
+			<div>
+				<app-primary-button (ngClick)="onClick()" [className]="'secondary'" [disabled]="true"> SECONDARY DISABLED </app-primary-button>
+			</div>
 
-		<div>
-			<app-primary-button (ngClick)="onClick()" [className]="'success'"> SUCCESS </app-primary-button>
-		</div>
+			<div>
+				<app-primary-button (ngClick)="onClick()" [className]="'secondary sm'"> Secondary Small </app-primary-button>
+			</div>
 
-		<div>
-			<app-primary-button (ngClick)="onClick()" [className]="'success'" [disabled]="true"> SUCCESS DISABLED </app-primary-button>
-		</div>
+			<div>
+				<app-primary-button (ngClick)="onClick()" [className]="'secondary lg'"> SECONDARY LARGE </app-primary-button>
+			</div>
 
-		<div>
-			<app-primary-button (ngClick)="onClick()" [className]="'success sm'"> Success Small </app-primary-button>
-		</div>
+			<div>
+				<app-primary-button (ngClick)="onClick()" [className]="'success'"> SUCCESS </app-primary-button>
+			</div>
 
-		<div>
-			<app-primary-button (ngClick)="onClick()" [className]="'success lg'"> SUCCESS LARGE </app-primary-button>
-		</div>
+			<div>
+				<app-primary-button (ngClick)="onClick()" [className]="'success'" [disabled]="true"> SUCCESS DISABLED </app-primary-button>
+			</div>
 
-		<div>
-			<app-primary-button (ngClick)="onClick()" [className]="'danger'"> DANGER </app-primary-button>
-		</div>
+			<div>
+				<app-primary-button (ngClick)="onClick()" [className]="'success sm'"> Success Small </app-primary-button>
+			</div>
 
-		<div>
-			<app-primary-button (ngClick)="onClick()" [className]="'danger'" [disabled]="true"> DANGER DISABLED </app-primary-button>
-		</div>
+			<div>
+				<app-primary-button (ngClick)="onClick()" [className]="'success lg'"> SUCCESS LARGE </app-primary-button>
+			</div>
 
-		<div>
-			<app-primary-button (ngClick)="onClick()" [className]="'danger sm'"> Danger Small </app-primary-button>
-		</div>
+			<div>
+				<app-primary-button (ngClick)="onClick()" [className]="'danger'"> DANGER </app-primary-button>
+			</div>
 
-		<div>
-			<app-primary-button (ngClick)="onClick()" [className]="'danger lg'"> DANGER LARGE </app-primary-button>
+			<div>
+				<app-primary-button (ngClick)="onClick()" [className]="'danger'" [disabled]="true"> DANGER DISABLED </app-primary-button>
+			</div>
+
+			<div>
+				<app-primary-button (ngClick)="onClick()" [className]="'danger sm'"> Danger Small </app-primary-button>
+			</div>
+
+			<div>
+				<app-primary-button (ngClick)="onClick()" [className]="'danger lg'"> DANGER LARGE </app-primary-button>
+			</div>
 		</div>
 	</article>
 </section>

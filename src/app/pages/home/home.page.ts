@@ -16,6 +16,20 @@ export class HomePage implements OnInit {
 	}
 
 	/**
+	 * Add a character page if intersecting
+	 */
+	public isIntersecting(entry: IntersectionObserverEntry): void {
+		const { isIntersecting, target, intersectionRect, rootBounds } = entry;
+		const isBelow: boolean = intersectionRect.bottom !== rootBounds?.bottom;
+
+		if (isIntersecting && !target.classList.contains('active')) {
+			target.classList.add('active');
+		} else if (!isIntersecting && target.classList.contains('active') && !isBelow) {
+			target.classList.remove('active');
+		}
+	}
+
+	/**
 	 * 'Click' handler
 	 */
 	public onClick(): void {

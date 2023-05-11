@@ -1,0 +1,61 @@
+.PrimaryFileInput {
+	width: 450px;
+	height: auto;
+	padding: 2rem;
+	margin: 0 auto;
+
+	position: relative;
+
+	display: flex;
+	gap: .5rem;
+	flex-direction: column;
+	align-items: center;
+
+	border: dashed 1px #979797;
+	border-radius: 6px;
+
+	text-align: center;
+
+	svg {
+		width: 40px;
+		height: 40px;
+	}
+
+	input {
+		z-index: 2;
+		width: 0;
+		height: 0;
+
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		opacity: 0;
+	}
+
+	label {
+		padding: 1rem 1.5rem;
+
+		cursor: pointer;
+		border-radius: 21.5px;
+		background-color: #db202f;
+		background-color: var(--danger);
+		color: white;
+
+		transition: background-color .25s;
+
+		&:hover {
+			background-color: var(--danger-hover);
+		}
+
+		&:active {
+			background-color: var(--danger-active);
+		}
+	}
+
+	h3 {
+		font-size: 20px;
+		font-weight: 600;
+		color: #38424c;
+	}
+}

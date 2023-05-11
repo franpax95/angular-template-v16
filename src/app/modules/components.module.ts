@@ -12,10 +12,13 @@ import { WikiIcon } from '../components/icons/wiki.icon';
 import { MarvelIcon } from '../components/icons/marvel.icon';
 import { CloseIcon } from '../components/icons/close.icon';
 import { FormsModule } from '@angular/forms';
+import { UploadIcon } from '../components/icons/upload.icon';
+import { PrimaryFileInputComponent } from '../components/primary-file-input/primary-file-input.component';
+import { DirectivesModule } from './directives.module';
 
-const icons: Array<any> = [ArrowLeftIcon, ArrowRightIcon, CloseIcon, InfoIcon, MarvelIcon, SearchIcon, WikiIcon];
+const icons: Array<any> = [ArrowLeftIcon, ArrowRightIcon, CloseIcon, InfoIcon, MarvelIcon, SearchIcon, UploadIcon, WikiIcon];
 
-const general: Array<any> = [SpinnerComponent, ModalComponent, PrimaryAnchorComponent, PrimaryButtonComponent];
+const general: Array<any> = [SpinnerComponent, ModalComponent, PrimaryAnchorComponent, PrimaryButtonComponent, PrimaryFileInputComponent];
 
 const modules: Array<any> = [
 	/** Specific Components Modules Here */
@@ -23,7 +26,7 @@ const modules: Array<any> = [
 
 @NgModule({
 	declarations: [...icons, ...general, ...modules],
-	imports: [CommonModule, FormsModule],
+	imports: [CommonModule, FormsModule, DirectivesModule],
 	exports: [...icons, ...general, ...modules],
 })
 export class ComponentsModule {}

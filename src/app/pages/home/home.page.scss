@@ -1,10 +1,41 @@
 .HomePage {
-	padding: 2rem;
+	padding: 20vh 1rem;
+	min-height: 200vh;
 
 	display: flex;
-	gap: 1rem;
+	gap: 25vh;
+	gap: max(25vh, 10rem);
 	flex-direction: column;
 	align-items: center;
+
+	header {
+		max-width: 800px;
+
+		display: flex;
+		gap: 1rem;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	article {
+		width: 100%;
+		max-width: 1000px;
+
+		display: flex;
+		gap: 1rem;
+		flex-direction: column;
+		align-items: center;
+
+		opacity: 0;
+
+		transform: translateX(-30px);
+		transition: transform .25s, opacity .25s;
+
+		&.active {
+			opacity: 1;
+			transform: translateX(0);
+		}
+	}
 
 	.buttons-container {
 		display: grid;
@@ -13,6 +44,23 @@
 		div {
 			width: 100%;
 			height: 150px;
+			padding: 10px;
+	
+			display: grid;
+			place-items: center;
+	
+			border: solid 1px lightgray;
+		}
+	}
+
+	.icons-container {
+		width: 100%;
+		display: grid;
+		grid-template-columns: repeat(auto-fill, 100px);
+	
+		div {
+			width: 100%;
+			height: 100px;
 			padding: 10px;
 	
 			display: grid;

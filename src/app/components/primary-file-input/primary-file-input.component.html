@@ -1,0 +1,7 @@
+<div class="PrimaryFileInput" appDropFiles (filesDropped)="onFileDropped($event)">
+	<input type="file" #fileDropRef id="fileDropRef" multiple (change)="fileBrowserHandler($event)" />
+	<app-upload-icon></app-upload-icon>
+	<h3>Drag and drop file here</h3>
+	<h3>or</h3>
+	<label for="fileDropRef">Browse for file</label>
+</div>

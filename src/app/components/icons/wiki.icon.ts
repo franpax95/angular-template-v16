@@ -9,6 +9,8 @@ import { Component } from '@angular/core';
 		xmlns:xlink="http://www.w3.org/1999/xlink"
 		x="0px"
 		y="0px"
+		width="24px"
+		height="24px"
 		viewBox="0 0 48 48"
 		style="enable-background:new 0 0 48 48;"
 		fill="currentColor"

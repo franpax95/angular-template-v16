@@ -77,27 +77,6 @@ button {
 	border: none;
 }
 
-/********************************************************************
- * MODAL KEYFRAMES
- */
-@keyframes ModalFadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes ModalFadeOut {
-    to { opacity: 0; }
-}
-
-@keyframes ModalTranslateIn {
-    0% { transform: translateY(calc(-45px + calc(var(--level, 0) * 15px))); }
-    100% { transform: translateY(calc(-45px + calc(var(--next-level, 1) * 15px))); }
-}
-
-@keyframes ModalTranslateOut {
-    to { transform: translateY(calc(-45px + calc(var(--level, 0) * 15px))); }
-}
-
 /***************************************************************************
  * PRIMARY BUTTON & ANCHOR
  */

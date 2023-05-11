@@ -1,6 +1,6 @@
 {
 	"root": true,
-	"ignorePatterns": ["projects/**/*"],
+	"ignorePatterns": ["projects/**/*", "src/utils/*.ts"],
 	"overrides": [
 		{
 			"files": ["*.ts"],
@@ -37,6 +37,7 @@
 						"style": "kebab-case"
 					}
 				],
+				"@angular-eslint/no-empty-lifecycle-method": 1,
 
 				/*****************************************************
 				 * TYPESCRIPT RULES

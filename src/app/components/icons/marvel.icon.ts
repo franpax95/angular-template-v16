@@ -3,8 +3,8 @@ import { Component } from '@angular/core';
 @Component({
 	selector: 'app-marvel-icon',
 	template: `<svg
-		width="48px"
-		height="48px"
+		width="24px"
+		height="24px"
 		viewBox="0 0 76 76"
 		xmlns="http://www.w3.org/2000/svg"
 		xmlns:xlink="http://www.w3.org/1999/xlink"

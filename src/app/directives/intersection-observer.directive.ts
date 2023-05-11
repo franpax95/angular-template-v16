@@ -11,9 +11,9 @@ export class IntersectionObserverDirective implements OnInit, OnDestroy {
 	@Input() public threshold: number = 0;
 	@Input() public debounceTime: number = 250;
 	@Input() public isContinuous: boolean = false;
-	@Output() public isIntersecting: EventEmitter<boolean> = new EventEmitter<boolean>();
+	@Output() public isIntersecting: EventEmitter<IntersectionObserverEntry> = new EventEmitter<IntersectionObserverEntry>();
 
-	public intersecting: boolean = false;
+	public entry: IntersectionObserverEntry | null = null;
 	private subscription!: Subscription;
 
 	constructor(private element: ElementRef) {}
@@ -33,10 +33,10 @@ export class IntersectionObserverDirective implements OnInit, OnDestroy {
 			threshold: this.threshold,
 		};
 
-		return new Observable<boolean>(subscriber => {
+		return new Observable<IntersectionObserverEntry>(subscriber => {
 			const intersectionObserver: IntersectionObserver = new IntersectionObserver(entries => {
 				const { isIntersecting } = entries[0];
-				subscriber.next(isIntersecting);
+				subscriber.next(entries[0]);
 
 				if (isIntersecting && !this.isContinuous) {
 					intersectionObserver.disconnect();
@@ -52,9 +52,9 @@ export class IntersectionObserverDirective implements OnInit, OnDestroy {
 			};
 		})
 			.pipe(debounceTime(this.debounceTime))
-			.subscribe(status => {
-				this.isIntersecting.emit(status);
-				this.intersecting = status;
+			.subscribe(entry => {
+				this.isIntersecting.emit(entry);
+				this.entry = entry;
 			});
 	}
 }

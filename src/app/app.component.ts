@@ -30,4 +30,12 @@ export class AppComponent implements OnInit, OnDestroy {
 	public ngOnDestroy(): void {
 		console.dir('ngOnDestroy');
 	}
+
+	public fileBrowserHandler(event: Event): void {
+		console.dir(event);
+	}
+
+	public onFileDropped(files: FileList): void {
+		console.dir(files);
+	}
 }
