@@ -1,8 +1,4 @@
-<div
-	[class]="CLASSNAME"
-	(animationend)="animationDone($event)"
-	[ngStyle]="{ '--level': level, '--next-level': level + 1 }"
->
+<div [class]="CLASSNAME" (animationend)="animationDone($event)" [ngStyle]="{ '--level': level, '--next-level': level + 1 }">
 	<div class="modal">
 		<div class="header">
 			<h1 class="title" [title]="conf.title">{{ conf.title }}</h1>
@@ -17,31 +13,11 @@
 		</div>
 
 		<div class="footer">
-			<app-primary-button
-				*ngIf="conf.onAccept"
-				[id]="'primary-modal-success-btn-' + level"
-				[className]="'success'"
-				(ngClick)="onAcceptClick($event)"
-			>
-				Aceptar
-			</app-primary-button>
+			<app-primary-button *ngIf="conf.onAccept" [id]="'primary-modal-success-btn-' + level" [className]="'success'" (ngClick)="onAcceptClick($event)"> Aceptar </app-primary-button>
 
-			<app-primary-button
-				*ngIf="conf.onCancel"
-				[id]="'primary-modal-danger-btn-' + level"
-				[className]="'danger'"
-				(ngClick)="onCancelClick($event)"
-			>
-				Cancelar
-			</app-primary-button>
+			<app-primary-button *ngIf="conf.onCancel" [id]="'primary-modal-danger-btn-' + level" [className]="'danger'" (ngClick)="onCancelClick($event)"> Cancelar </app-primary-button>
 
-			<app-primary-button
-				*ngIf="!conf.onAccept && !conf.onCancel"
-				[id]="'primary-modal-default-btn-' + level"
-				(ngClick)="onDefaultClick($event)"
-			>
-				Aceptar
-			</app-primary-button>
+			<app-primary-button *ngIf="!conf.onAccept && !conf.onCancel" [id]="'primary-modal-default-btn-' + level" (ngClick)="onDefaultClick($event)"> Aceptar </app-primary-button>
 		</div>
 	</div>
 </div>

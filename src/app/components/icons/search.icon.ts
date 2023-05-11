@@ -2,14 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
 	selector: 'app-search-icon',
-	template: `<svg
-		width="800px"
-		height="800px"
-		viewBox="0 -0.5 21 21"
-		version="1.1"
-		xmlns="http://www.w3.org/2000/svg"
-		xmlns:xlink="http://www.w3.org/1999/xlink"
-	>
+	template: `<svg width="800px" height="800px" viewBox="0 -0.5 21 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 		<title>search_right [#1505]</title>
 		<desc>Created with Sketch.</desc>
 		<defs></defs>

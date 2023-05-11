@@ -30,15 +30,9 @@ export class ModalComponent extends Modal implements AfterContentInit {
 
 	public ngAfterContentInit(): void {
 		setTimeout(() => {
-			const acceptBtn: HTMLButtonElement | null = <HTMLButtonElement>(
-				document.getElementById(`primary-modal-success-btn-${this.level}`)
-			);
-			const cancelBtn: HTMLButtonElement | null = <HTMLButtonElement>(
-				document.getElementById(`primary-modal-danger-btn-${this.level}`)
-			);
-			const defaultBtn: HTMLButtonElement | null = <HTMLButtonElement>(
-				document.getElementById(`primary-modal-default-btn-${this.level}`)
-			);
+			const acceptBtn: HTMLButtonElement | null = <HTMLButtonElement>document.getElementById(`primary-modal-success-btn-${this.level}`);
+			const cancelBtn: HTMLButtonElement | null = <HTMLButtonElement>document.getElementById(`primary-modal-danger-btn-${this.level}`);
+			const defaultBtn: HTMLButtonElement | null = <HTMLButtonElement>document.getElementById(`primary-modal-default-btn-${this.level}`);
 
 			// Comprobamos primero el botón por defecto, sino el de aceptar y, por último, el de cancelar
 			if (defaultBtn) {

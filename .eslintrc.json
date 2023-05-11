@@ -107,7 +107,10 @@
 				],
 
 				// Disallow multiple spaces
-				"no-multi-spaces": "error"
+				"no-multi-spaces": "error",
+
+				// Disallow lexical declarations in case clauses
+				"no-case-declarations": "off"
 			}
 		},
 		{
