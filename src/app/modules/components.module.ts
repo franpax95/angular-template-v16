@@ -15,8 +15,9 @@ import { FormsModule } from '@angular/forms';
 import { UploadIcon } from '../components/icons/upload.icon';
 import { PrimaryFileInputComponent } from '../components/primary-file-input/primary-file-input.component';
 import { DirectivesModule } from './directives.module';
+import { PdfIcon } from '../components/icons/pdf.icon';
 
-const icons: Array<any> = [ArrowLeftIcon, ArrowRightIcon, CloseIcon, InfoIcon, MarvelIcon, SearchIcon, UploadIcon, WikiIcon];
+const icons: Array<any> = [ArrowLeftIcon, ArrowRightIcon, CloseIcon, InfoIcon, MarvelIcon, PdfIcon, SearchIcon, UploadIcon, WikiIcon];
 
 const general: Array<any> = [SpinnerComponent, ModalComponent, PrimaryAnchorComponent, PrimaryButtonComponent, PrimaryFileInputComponent];
 

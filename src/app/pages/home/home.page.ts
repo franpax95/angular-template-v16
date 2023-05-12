@@ -6,6 +6,9 @@ import { SettingsService } from 'src/app/services/settings.service';
 	styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
+	/** Base64 for testing primary-file-input */
+	public base64: string = '';
+
 	constructor(private settings: SettingsService) {}
 
 	public ngOnInit(): void {
@@ -27,6 +30,13 @@ export class HomePage implements OnInit {
 		} else if (!isIntersecting && target.classList.contains('active') && !isBelow) {
 			target.classList.remove('active');
 		}
+	}
+
+	/**
+	 * File input handler
+	 */
+	public onFileInputChange(base64: string): void {
+		this.base64 = base64;
 	}
 
 	/**

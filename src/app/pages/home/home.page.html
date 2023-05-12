@@ -34,6 +34,10 @@
 			</div>
 
 			<div>
+				<app-pdf-icon></app-pdf-icon>
+			</div>
+
+			<div>
 				<app-search-icon></app-search-icon>
 			</div>
 
@@ -50,7 +54,7 @@
 	<article appIntersectionObserver #intersection="intersection" (isIntersecting)="isIntersecting($event)" [isContinuous]="true" [threshold]="0.25">
 		<h2>File Input</h2>
 		<div class="file-input-container">
-			<app-primary-file-input></app-primary-file-input>
+			<app-primary-file-input [value]="base64" (fileLoaded)="onFileInputChange($event)"></app-primary-file-input>
 		</div>
 	</article>
 

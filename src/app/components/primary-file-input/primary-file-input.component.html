@@ -1,7 +1,24 @@
 <div class="PrimaryFileInput" appDropFiles (filesDropped)="onFileDropped($event)">
 	<input type="file" #fileDropRef id="fileDropRef" multiple (change)="fileBrowserHandler($event)" />
-	<app-upload-icon></app-upload-icon>
-	<h3>Drag and drop file here</h3>
-	<h3>or</h3>
-	<label for="fileDropRef">Browse for file</label>
+
+	<app-upload-icon *ngIf="!(loading || fade)"></app-upload-icon>
+	<app-spinner *ngIf="loading || fade" [size]="SpinnerSize.SMALL" [color]="'#4d4d4d'"></app-spinner>
+
+	<h3>{{ content }}</h3>
+
+	<label for="fileDropRef">{{ label }}</label>
+
+	<div class="preview" [ngClass]="{ hidden: !showPreview, fade }">
+		<button class="content" (click)="onPreviewClick($event)">
+			<img *ngIf="isImage" [src]="base64Loaded" alt="preview" (load)="onLoad($event)" />
+
+			<div class="pdf" *ngIf="!isImage">
+				<app-pdf-icon></app-pdf-icon>
+			</div>
+		</button>
+
+		<button class="close-btn" (click)="onCancelClick($event)">
+			<app-close-icon></app-close-icon>
+		</button>
+	</div>
 </div>
